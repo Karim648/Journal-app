@@ -47,6 +47,7 @@ export const editEntry = async (req, res) => {
         res.status(200).json({ updatedEntry });
         
     } catch (error) {
+        console.error(error);
         res.status(500).json({ msg: error });
     }
 
@@ -64,7 +65,7 @@ export const deleteEntry = async (req, res) => {
             return res.status(404).json({ msg: `Entry with id: ${id} does not exist`});
         }
 
-        res.status(202).json({ deleteEntry });
+        res.status(202).json({ deletedEntry });
         
     } catch (error) {
         res.status(500).json({ msg: error });

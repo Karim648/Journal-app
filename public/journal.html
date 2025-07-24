@@ -12,13 +12,33 @@
 </head>
 <body>
     <h1>Journal</h1>
+    <a id="home" href="index.html">↩</a>
     <section id="journal-entries">
-        <div class="entry-card"><p>Birthday</p></div>
-        <div class="entry-card"><p>Birthday</p></div>
-        <div class="entry-card"><p>Birthday</p></div>
-        <div class="entry-card"><p>Birthday</p></div>
-        <div class="entry-card"><p>Birthday</p></div>
+        <!-- journal entries -->
     </section>
+
+    <section class="modal">
+        <div class="modal-content"></div>
+        <div class="edit-modal">
+            <form id="edit-form" action="">
+                <button id="cancel-edit" type="button">X</button>
+                <h2>Edit Journal</h2>
+
+                    <label for="edit-title">Title</label>
+                    <input type="text" name="title" id="edit-title" required>
+                
+                
+                    <label for="edit-date">Date</label>
+                    <input type="date" name="date" id="edit-date" required>                
+                
+                <label for="edit-entry">Entry</label>
+                <textarea name="entry" id="edit-entry" required></textarea>
+
+                <button id="edit-btn">Edit Entry</button>
+            </form>
+        </div>
+    </section>
+
     <script src="index.js" type="module"></script>
 </body>
 </html>
