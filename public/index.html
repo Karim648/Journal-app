@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Font Domine -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <main>
+        <div class="container">
+            <h1>Journal</h1>
+            <button id="create-btn" type="button">Create Entry</button>
+            <a href="journal.html">Open Journal</a>
+        </div>
+        <div class="entry-modal">
+            <button id="close-btn">X</button>
+            <form id="entry-form" action="">
+
+                <h2>Journal Entry</h2>
+
+                
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" required>
+                
+                
+                    <label for="date">Date</label>
+                    <input type="date" name="date" id="date" required>
+                
+                
+                <label for="entry">Entry</label>
+                <textarea name="entry" id="entry" required></textarea>
+
+                <button id="submit-btn">Add Entry</button>
+            </form>
+        </div>
+    </main>
+    
+    <script src="index.js" type="module"></script>
+</body>
+</html>
