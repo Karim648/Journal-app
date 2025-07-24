@@ -1,27 +1,73 @@
 import { Entry } from "../model/entry.js";
 
-export const getEntries = (req, res) => {
+export const getEntries = async (req, res) => {
     console.log("view Entries");
-    res.send("View Journal");
+
+    try {
+        
+        const allEntries = await Entry.find({});
+        res.status(200).json({ allEntries });
+
+    } catch (error) {   
+        res.status(500).json({ msg: error });
+    }
+
 }
 
 export const createEntry = async (req, res) => {
     console.log("Entry added");
-    console.log(req.body);
+
+    try {
+
+        const newEntry = await Entry.create(req.body);
+        res.status(201).json({ newEntry });
+        
+    } catch (error) {
+        res.status(500).json({ msg: error });
+    }
     
-    const entry = await Entry.create(req.body);
-    console.log(entry);
-    res.status(201).json({ entry });
 }
 
-export const editEntry = (req, res) => {
+export const editEntry = async (req, res) => {
     console.log("Edit sucessful");
-    console.log(req.body)
-    const edit = req.params.id;
-    res.json({ id: edit });
+    
+    try {
+        
+        console.log(req.body);
+        const id = req.params.id;
+        const updatedEntry = await Entry.findByIdAndUpdate( id, req.body, {
+            new: true,  // returns the updated document
+            runValidators: true  // re-run the mongoose schema validation
+        });
+
+        if (!updatedEntry) {
+            return console.log(`Entry not found`);
+        }
+
+        res.status(200).json({ updatedEntry });
+        
+    } catch (error) {
+        res.status(500).json({ msg: error });
+    }
+
 }
 
-export const deleteEntry = (req, res) => {
+export const deleteEntry = async (req, res) => {
     console.log("Entry deleted");
-    res.send("Entry Deleted");
+
+    try {
+
+        const id = req.params.id;
+        const deletedEntry = await Entry.deleteOne({ _id: id});
+
+        if (!deleteEntry) {
+            return res.status(404).json({ msg: `Entry with id: ${id} does not exist`});
+        }
+
+        res.status(202).json({ deleteEntry });
+        
+    } catch (error) {
+        res.status(500).json({ msg: error });
+    }
+
 }

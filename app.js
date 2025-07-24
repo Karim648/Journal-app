@@ -5,7 +5,7 @@ import dotenv from "dotenv/config";
 import cors from "cors";
 
 const PORT = 8000;
-
+const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/${process.env.MONGO_DB}?${process.env.MONGO_OPTIONS}`;
 const app = express();
 
 // middleware
@@ -21,7 +21,7 @@ const start = async () => {
 
     try {
         
-        await connectDB(process.env.MONGO_URI);
+        await connectDB(uri);
         app.listen(PORT, () => console.log(`Connected on port: ${PORT}...`));
 
     } catch (error) {
