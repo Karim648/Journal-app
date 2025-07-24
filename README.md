@@ -34,19 +34,23 @@ A simple journal web application built to practice full CRUD (Create, Read, Upda
 
 2. Install dependencies
 
-- npm install
+   ```bash
+   npm install
 
 3. Set up environment variables
 
 - Create a .env file in the root directory and add your MongoDB connection string:
-- MONGO_URI=your_mongodb_connection_string
-- PORT=8000
+  
+   ```bash
+   MONGO_URI=your_mongodb_connection_string
+   PORT=8000
 
 4. Start the server
 
-- npm start
+   ```bash
+   npm start
 
-5. Open the frontend
+6. Open the frontend
 
 - Use Live Server or open index.html in your browser to start using the app.
 
@@ -59,15 +63,16 @@ A simple journal web application built to practice full CRUD (Create, Read, Upda
 
 ## Folder Structure
 
-journal-app/
-│
-├── public/            # Frontend files (HTML, CSS, JS)
-├── routes/            # Express route handlers
-├── controllers/       # Request handlers logic
-├── models/            # Mongoose schemas and models
-├── db/                # Database connection files
-├── server.js          # Main server file
-└── README.md          # This file
+      
+      journal-app/
+      │
+      ├── public/            # Frontend files (HTML, CSS, JS)
+      ├── routes/            # Express route handlers
+      ├── controllers/       # Request handlers logic
+      ├── models/            # Mongoose schemas and models
+      ├── db/                # Database connection files
+      ├── server.js          # Main server file
+      └── README.md          # This file
 
 ## Future Improvements
 
